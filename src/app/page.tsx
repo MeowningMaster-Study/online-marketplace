@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import {db} from '@/lib/drizzle'
 
 export default function Home() {
   return (
