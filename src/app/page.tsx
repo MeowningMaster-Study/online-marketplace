@@ -1,11 +1,10 @@
 import Image from 'next/image'
 import { Db } from '@/lib/drizzle'
-import { test } from '@/lib/drizzle/schema/test'
 
 export default async function Home() {
     const db = await Db()
-    const records = await db.select().from(test)
-    console.log(records)
+    // const records = await db.select().from(test)
+    // console.log(records)
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
