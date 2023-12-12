@@ -10,7 +10,7 @@
   // files
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
-    "package.json": "pnpm-lock.yaml, next.config.mjs, postcss.config.js, tailwind.config.ts, tsconfig.json, biome.json, .editorconfig, .gitignore",
+    "package.json": "pnpm-lock.yaml, *.config.js, *.config.ts, *.config.mjs, tsconfig.json, biome.json, .editorconfig, .gitignore",
     ".env": ".env*"
   },
   "files.exclude": {
