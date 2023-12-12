@@ -1,9 +1,9 @@
 'use client'
 
 import { useDisclosure } from '@mantine/hooks'
-import { AppShell, Burger, Group } from '@mantine/core'
+import { AppShell, Burger, Group, Text } from '@mantine/core'
 import { PropsWithChildren } from 'react'
-import IconApp from '@/svg/icon.svg'
+import IconApp from '@/assets/svg/icon.svg'
 
 export function Shell({ children }: PropsWithChildren) {
 	const [opened, { toggle }] = useDisclosure()
@@ -28,6 +28,7 @@ export function Shell({ children }: PropsWithChildren) {
 							size='sm'
 						/>
 						<IconApp height={36} />
+						<Text fz='lg'>Marketplace</Text>
 					</Group>
 				</AppShell.Header>
 

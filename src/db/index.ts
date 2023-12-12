@@ -1,5 +1,6 @@
 import { sql } from '@vercel/postgres'
-import { VercelPgDatabase, drizzle } from 'drizzle-orm/vercel-postgres'
-import { migrate } from 'drizzle-orm/vercel-postgres/migrator'
+import { drizzle } from 'drizzle-orm/vercel-postgres'
+import * as schema from './schema'
 
-export const db = drizzle(sql)
+export const db = drizzle(sql, { schema })
+export * as d from './schema'
