@@ -1,6 +1,24 @@
 {
+  // format
   "editor.formatOnSave": true,
-  "[javascript][javascriptreact][typescript][typescriptreact][json][yaml][css][html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "[javascript][javascriptreact][typescript][typescriptreact][json][jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
   },
+  "[css]": {
+		"editor.defaultFormatter": "vscode.css-language-features"
+	},
+  // files
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "package.json": "pnpm-lock.yaml, next.config.mjs, postcss.config.js, tailwind.config.ts, tsconfig.json, biome.json, .editorconfig, .gitignore",
+    ".env": ".env*"
+  },
+  "files.exclude": {
+    "next-env.d.ts": true,
+    ".next": true
+  },
+  // jsx
+	"editor.linkedEditing": true,
+	"javascript.preferences.renameMatchingJsxTags": true,
+	"typescript.preferences.renameMatchingJsxTags": true
 }
