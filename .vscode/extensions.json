@@ -1,5 +1,8 @@
 {
-  "recommendations": [
-    "biomejs.biome"
-  ]
+	"recommendations": [
+		"biomejs.biome",
+		"vunguyentuan.vscode-postcss",
+		"vunguyentuan.vscode-css-variables",
+		"bradlc.vscode-tailwindcss"
+	]
 }

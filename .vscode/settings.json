@@ -1,24 +1,38 @@
 {
-  // format
-  "editor.formatOnSave": true,
-  "[javascript][javascriptreact][typescript][typescriptreact][json][jsonc]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "[css]": {
+	// format
+	"editor.formatOnSave": true,
+	"[javascript][javascriptreact][typescript][typescriptreact][json][jsonc]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[css]": {
 		"editor.defaultFormatter": "vscode.css-language-features"
 	},
-  // files
-  "explorer.fileNesting.enabled": true,
-  "explorer.fileNesting.patterns": {
-    "package.json": "pnpm-lock.yaml, *.config.js, *.config.ts, *.config.mjs, *.config.cjs, tsconfig.json, biome.json, .editorconfig, .gitignore",
-    ".env": ".env*"
-  },
-  "files.exclude": {
-    "next-env.d.ts": true,
-    ".next": true
-  },
-  // jsx
+	// files
+	"explorer.fileNesting.enabled": true,
+	"explorer.fileNesting.patterns": {
+		"package.json": "pnpm-lock.yaml, *.config.js, *.config.ts, *.config.mjs, *.config.cjs, tsconfig.json, biome.json, .editorconfig, .gitignore",
+		".env": ".env*"
+	},
+	"files.exclude": {
+		"next-env.d.ts": true,
+		".next": true
+	},
+	// jsx
 	"editor.linkedEditing": true,
 	"javascript.preferences.renameMatchingJsxTags": true,
-	"typescript.preferences.renameMatchingJsxTags": true
+	"typescript.preferences.renameMatchingJsxTags": true,
+	// css
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
+	"editor.quickSuggestions": {
+		"strings": "on"
+	},
+	"cssVariables.lookupFiles": [
+		"**/*.css",
+		"**/*.scss",
+		"**/*.sass",
+		"**/*.less",
+		"node_modules/@mantine/core/esm/index.css"
+	]
 }
