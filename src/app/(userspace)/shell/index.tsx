@@ -1,15 +1,15 @@
 'use client'
 
 import { useDisclosure } from '@mantine/hooks'
-import { AppShell, Burger } from '@mantine/core'
+import { AppShell, Burger, Group } from '@mantine/core'
 import { PropsWithChildren } from 'react'
+import IconApp from '@/svg/icon.svg'
 
-export function MyAppShell({ children }: PropsWithChildren) {
+export function Shell({ children }: PropsWithChildren) {
 	const [opened, { toggle }] = useDisclosure()
 
 	return (
 		<>
-			Hello
 			<AppShell
 				header={{ height: 60 }}
 				navbar={{
@@ -20,8 +20,15 @@ export function MyAppShell({ children }: PropsWithChildren) {
 				padding='md'
 			>
 				<AppShell.Header>
-					<Burger opened={opened} onClick={toggle} hiddenFrom='sm' size='sm' />
-					<div>Logo</div>
+					<Group h='100%' px='md'>
+						<Burger
+							opened={opened}
+							onClick={toggle}
+							hiddenFrom='sm'
+							size='sm'
+						/>
+						<IconApp height={36} />
+					</Group>
 				</AppShell.Header>
 
 				<AppShell.Navbar p='md'>Navbar</AppShell.Navbar>

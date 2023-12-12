@@ -5,7 +5,7 @@ import { MantineProvider, ColorSchemeScript } from '@mantine/core'
 import { theme } from '@/components/mantine/theme'
 
 export const metadata: Metadata = {
-	title: 'Online Marketplace',
+	title: 'Marketplace',
 	description: 'Place to buy and sell stuff',
 }
 
