@@ -1,8 +1,13 @@
 import './globals.css'
 import '@mantine/core/styles.css'
+import '@mantine/nprogress/styles.css'
+import '@mantine/notifications/styles.css'
+
 import type { Metadata } from 'next'
 import { MantineProvider, ColorSchemeScript } from '@mantine/core'
 import { theme } from '@/components/mantine/theme'
+import { NavigationProgress } from '@mantine/nprogress'
+import { Notifications } from '@mantine/notifications'
 
 export const metadata: Metadata = {
 	title: 'Marketplace',
@@ -20,7 +25,11 @@ export default function RootLayout({
 				<ColorSchemeScript />
 			</head>
 			<body>
-				<MantineProvider theme={theme}>{children}</MantineProvider>
+				<MantineProvider theme={theme}>
+					<NavigationProgress />
+					<Notifications />
+					{children}
+				</MantineProvider>
 			</body>
 		</html>
 	)
