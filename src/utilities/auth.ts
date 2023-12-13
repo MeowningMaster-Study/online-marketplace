@@ -1,9 +1,10 @@
+import { TokenPayload } from '@/logic/security/token-payload'
 import { cookies } from './cookies'
 
 /**
  * JWT token
  */
-type AuthData = string
+type AuthData = TokenPayload
 
 const cookieName = 'auth'
 

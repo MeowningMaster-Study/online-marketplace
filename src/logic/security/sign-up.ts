@@ -28,6 +28,6 @@ export async function signUp({ login, password }: Credentials) {
 
 	const payload: TokenPayload = { id: user.id }
 	const token = sign(payload, env.JWT_SECRET)
-	auth.set(token)
-	return { id: user.id }
+	auth.set(payload)
+	return payload
 }
