@@ -1,19 +1,22 @@
-import { ProductCard } from '@/components/product/card'
+import { ProductList } from '@/components/product/list'
 import { getMyNomenclatures } from '@/logic/nomenclature/get-my'
-import { Grid, GridCol } from '@mantine/core'
+import { ActionIcon } from '@mantine/core'
+import { IconPlaylistAdd } from '@tabler/icons-react'
 
 export default async function Page() {
 	const products = await getMyNomenclatures()
 
 	return (
 		<>
-			<Grid>
-				{products.map((product) => (
-					<GridCol key={product.id} span='auto'>
-						<ProductCard {...product} />
-					</GridCol>
-				))}
-			</Grid>
+			<ActionIcon
+				className='fixed bottom-4 right-4'
+				size={50}
+				component='a'
+				href='/product/create'
+			>
+				<IconPlaylistAdd style={{ width: '70%', height: '70%' }} />
+			</ActionIcon>
+			<ProductList products={products} />
 		</>
 	)
 }

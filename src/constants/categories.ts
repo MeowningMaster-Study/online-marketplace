@@ -1,0 +1,23 @@
+export type ProductCategories = (typeof productCategories)[number]
+export const productCategories = [
+	'Electronics and Gadgets',
+	'Home and Kitchen Appliances',
+	'Fashion and Apparel',
+	'Health and Beauty',
+	'Sports and Outdoor Equipment',
+	'Books and Stationery',
+	'Toys and Games',
+	'Furniture and Home Decor',
+	'Automotive Accessories',
+	'Pet Supplies',
+	'Jewelry and Accessories',
+	'Fitness and Wellness Products',
+	'Mobile Phones and Accessories',
+	'Computer Hardware and Software',
+	'Home Improvement Tools',
+	'Travel and Luggage',
+	'Baby and Kids Essentials',
+	'Office Supplies',
+	'Arts and Crafts',
+	'Food and Beverages',
+] as const
