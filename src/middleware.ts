@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { auth } from '@/utilities/auth'
 
-export async function middleware(request: NextRequest) {
+export default async function middleware(request: NextRequest) {
 	if (!auth.get()) {
 		return NextResponse.redirect(new URL('/login', request.url))
 	}
