@@ -7,6 +7,7 @@ import {
 	varchar,
 } from 'drizzle-orm/pg-core'
 import { user } from './user'
+import { relations } from 'drizzle-orm'
 
 export const nomenclature = pgTable('nomenclature', {
 	id: serial('id').primaryKey(),
@@ -18,3 +19,7 @@ export const nomenclature = pgTable('nomenclature', {
 		.notNull()
 		.references(() => user.id),
 })
+
+export const nomenclatureRelations = relations(nomenclature, ({ one }) => ({
+	seller: one(user, { fields: [nomenclature.userId], references: [user.id] }),
+}))

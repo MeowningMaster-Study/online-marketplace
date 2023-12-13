@@ -1,9 +1,9 @@
 import { ProductCard } from '@/components/product/card'
-import { getMyNomenclatures } from '@/logic/nomenclature/get-my'
+import { getStoreNomenclatures } from '@/logic/nomenclature/get-store'
 import { Grid, GridCol } from '@mantine/core'
 
 export default async function Page() {
-	const products = await getMyNomenclatures()
+	const products = await getStoreNomenclatures()
 
 	return (
 		<>

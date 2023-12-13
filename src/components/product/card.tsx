@@ -1,9 +1,12 @@
 import { d } from '@/db/index'
 import { Badge, Card, CardSection, Group, Image, Text } from '@mantine/core'
+import { IconUser, IconUserSquareRounded } from '@tabler/icons-react'
 
-type Nomenclature = Partial<typeof d.nomenclature.$inferSelect>
+type Nomenclature = typeof d.nomenclature.$inferSelect
+type User = typeof d.user.$inferSelect
+type Props = Nomenclature & { seller?: User }
 
-export function ProductCard(props: Nomenclature) {
+export function ProductCard(props: Props) {
 	const price = Number(props.price).toFixed(2)
 
 	return (
@@ -24,6 +27,15 @@ export function ProductCard(props: Nomenclature) {
 			<Text size='sm' c='dimmed'>
 				{props.description}
 			</Text>
+
+			{props.seller && (
+				<div className='flex gap-2 mt-4'>
+					<IconUserSquareRounded color='var(--mantine-color-dimmed)' />
+					<Text size='sm' c='dimmed'>
+						{props.seller.login}
+					</Text>
+				</div>
+			)}
 		</Card>
 	)
 }
