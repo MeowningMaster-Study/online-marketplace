@@ -1,42 +1,56 @@
-// import { security } from '@/api'
-// import { auth } from '@/utilities/auth'
-// import { BoxProps, Button, TextField } from '@mui/material'
-// import { redirect } from 'next/navigation'
+'use client'
 
-// async function submit(data: FormData) {
-//   'use server'
+import { HTMLAttributes } from 'react'
+import { submit } from './submit'
+import { useForm } from '@mantine/form'
+import { Button, TextInput } from '@mantine/core'
+import { Credentials } from '@/logic/security/credentials'
+import { isUserError } from '@/utilities/user-error'
+import { notifications } from '@mantine/notifications'
+import { useRouter } from 'next/navigation'
 
-//   const dataObject = Object.fromEntries(data.entries())
-//   const crendentials = security.signUp.schema.body.parse(dataObject)
+export function SignUpForm(props: HTMLAttributes<HTMLDivElement>) {
+	const form = useForm<Credentials>({
+		initialValues: {
+			login: '',
+			password: '',
+		},
+	})
 
-//   await security.signUp.call({ body: crendentials })
-//   const authData = await security.signIn.call({ body: crendentials })
-//   auth.set(authData)
-//   redirect('/')
-// }
+	const router = useRouter()
 
-// export function SignUpForm(props: BoxProps) {
-//   return (
-//     <form className={`flex flex-col gap-4 ${props.className}`} action={submit}>
-//       <div className="flex gap-4">
-//         <TextField
-//           name="firstName"
-//           label="Name"
-//           required
-//           autoComplete="given-name"
-//         />
-//         <TextField
-//           name="lastName"
-//           label="Surname"
-//           required
-//           autoComplete="family-name"
-//         />
-//       </div>
-//       <TextField name="login" label="Email" type="email" required />
-//       <TextField name="password" label="Password" type="password" required />
-//       <Button type="submit" variant="contained">
-//         Sign up
-//       </Button>
-//     </form>
-//   )
-// }
+	async function submitFrontend(values: Credentials) {
+		const result = await submit(values)
+		if (isUserError(result)) {
+			notifications.show({
+				message: result.error,
+				color: 'red',
+			})
+			return
+		}
+		router.push('/')
+	}
+
+	return (
+		<form
+			onSubmit={form.onSubmit(submitFrontend)}
+			className={`flex flex-col gap-4 ${props.className}`}
+		>
+			<TextInput
+				required
+				label='Login'
+				placeholder='meowningmaster'
+				{...form.getInputProps('login')}
+			/>
+			<TextInput
+				required
+				label='Password'
+				type='password'
+				{...form.getInputProps('password')}
+			/>
+			<div className='flex justify-end'>
+				<Button type='submit'>Sign up</Button>
+			</div>
+		</form>
+	)
+}

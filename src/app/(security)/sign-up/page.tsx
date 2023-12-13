@@ -1,18 +1,16 @@
-// import { CenterScreen } from '@/components/center-screen'
-// import { Card, Link, Typography } from '@mui/material'
-// import { SignUpForm } from './form'
+import { AnchorLink } from '@/components/mantine/anchor-link'
+import { SignUpForm } from './form'
+import { Card, Center, Title } from '@mantine/core'
 
-// export default function Login() {
-//   return (
-//     <main>
-//       <CenterScreen>
-//         <Card className="m-8 p-8">
-//           <Typography variant="h4">Learning Courses</Typography>
-//           <Typography variant="subtitle1">Create a new account</Typography>
-//           <SignUpForm className="my-4" />
-//           <Link href="/sign-in">Already have an account? Log in</Link>
-//         </Card>
-//       </CenterScreen>
-//     </main>
-//   )
-// }
+export default function Page() {
+	return (
+		<Center className='h-screen'>
+			<Card padding='xl'>
+				<Title order={4}>Marketplace</Title>
+				<Title order={5}>Create a new account</Title>
+				<SignUpForm className='my-4' />
+				<AnchorLink href='/login'>Already have an account? Log in</AnchorLink>
+			</Card>
+		</Center>
+	)
+}

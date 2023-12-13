@@ -49,7 +49,7 @@ export function LoginForm(props: HTMLAttributes<HTMLDivElement>) {
 				{...form.getInputProps('password')}
 			/>
 			<div className='flex justify-end'>
-				<Button type='submit'>Submit</Button>
+				<Button type='submit'>Log in</Button>
 			</div>
 		</form>
 	)
