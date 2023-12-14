@@ -41,14 +41,16 @@ export function OrderCard({ order, accept }: Props) {
 						.toFixed(2)}
 					₴
 				</Text>
-				<Button
-					color='blue'
-					radius='md'
-					leftSection={<IconCheck />}
-					onClick={() => accept(order.id)}
-				>
-					Accept
-				</Button>
+				{order.status === 'pending' && (
+					<Button
+						color='blue'
+						radius='md'
+						leftSection={<IconCheck />}
+						onClick={() => accept(order.id)}
+					>
+						Accept
+					</Button>
+				)}
 			</div>
 		</Card>
 	)
