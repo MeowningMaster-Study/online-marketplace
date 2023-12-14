@@ -10,7 +10,7 @@ import { NavigationProgress } from '@mantine/nprogress'
 
 export function MyMantineProvider({ children }: PropsWithChildren) {
 	return (
-		<MantineProvider theme={theme} forceColorScheme='dark'>
+		<MantineProvider theme={theme}>
 			<NavigationProgress />
 			<Notifications />
 			{children}

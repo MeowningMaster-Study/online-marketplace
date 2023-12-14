@@ -22,6 +22,8 @@ import {
 } from '@tabler/icons-react'
 import { useRouter } from 'next/navigation'
 import { auth } from '@/utilities/auth'
+import Link from 'next/link'
+import { MyNavLink } from '@/components/mantine/link'
 
 export function Shell({ children }: PropsWithChildren) {
 	const [opened, { toggle }] = useDisclosure()
@@ -59,28 +61,28 @@ export function Shell({ children }: PropsWithChildren) {
 				<AppShell.Navbar p='md'>
 					<AppShell.Section grow component={ScrollArea}>
 						<Divider label='Buying' labelPosition='left' />
-						<NavLink
+						<MyNavLink
 							label='Store'
 							href='/'
 							leftSection={<IconBuildingStore />}
 						/>
-						<NavLink
+						<MyNavLink
 							label='Cart'
 							href='/cart'
 							leftSection={<IconShoppingCart />}
 						/>
 						<Divider label='Selling' labelPosition='left' />
-						<NavLink
+						<MyNavLink
 							label='My products'
 							href='/my-products'
 							leftSection={<IconBuildingWarehouse />}
 						/>
-						<NavLink
+						<MyNavLink
 							label='My orders'
 							href='/my-orders'
 							leftSection={<IconTruckDelivery />}
 						/>
-						<NavLink
+						<MyNavLink
 							label='Analytics'
 							href='/analytics'
 							leftSection={<IconReportAnalytics />}
