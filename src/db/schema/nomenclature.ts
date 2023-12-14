@@ -8,6 +8,7 @@ import {
 } from 'drizzle-orm/pg-core'
 import { user } from './user'
 import { relations } from 'drizzle-orm'
+import { orderContent } from './order-content'
 
 export const nomenclature = pgTable('nomenclature', {
 	id: serial('id').primaryKey(),
@@ -20,6 +21,10 @@ export const nomenclature = pgTable('nomenclature', {
 		.references(() => user.id),
 })
 
-export const nomenclatureRelations = relations(nomenclature, ({ one }) => ({
-	seller: one(user, { fields: [nomenclature.userId], references: [user.id] }),
-}))
+export const nomenclatureRelations = relations(
+	nomenclature,
+	({ one, many }) => ({
+		seller: one(user, { fields: [nomenclature.userId], references: [user.id] }),
+		orderContents: many(orderContent),
+	}),
+)
