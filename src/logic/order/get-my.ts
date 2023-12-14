@@ -22,6 +22,5 @@ export async function getMyOrders() {
 		},
 		where: eq(d.order.sellerId, user.id),
 	})
-	console.log(orders)
 	return orders
 }

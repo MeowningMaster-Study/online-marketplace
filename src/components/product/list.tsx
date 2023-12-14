@@ -22,7 +22,7 @@ export function ProductList(props: Props) {
 	return (
 		<Flex gap='sm' wrap='wrap'>
 			{products.map((product) => (
-				<ProductCard {...product} remove={remove} />
+				<ProductCard key={product.id} {...product} remove={remove} />
 			))}
 		</Flex>
 	)
