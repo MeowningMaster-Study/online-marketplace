@@ -4,12 +4,12 @@ import { d, db } from '@/db'
 import { auth } from '@/utilities/auth'
 import { and, eq, sql } from 'drizzle-orm'
 
-export async function getSalesByCategory() {
+export async function getSalesByBuyer() {
 	const user = auth.getOrThrow()
 
 	const result = await db
 		.select({
-			category: d.nomenclature.category,
+			user: d.user.login,
 			sum: sql<number>`sum(${d.orderContent.count} * ${d.nomenclature.price})`,
 		})
 		.from(d.order)
@@ -18,8 +18,9 @@ export async function getSalesByCategory() {
 			d.nomenclature,
 			eq(d.orderContent.nomenclatureId, d.nomenclature.id),
 		)
+		.innerJoin(d.user, eq(d.order.customerId, d.user.id))
 		.where(and(eq(d.order.sellerId, user.id), eq(d.order.status, 'accepted')))
-		.groupBy(d.nomenclature.category)
+		.groupBy(d.user.id)
 
 	return result
 }
