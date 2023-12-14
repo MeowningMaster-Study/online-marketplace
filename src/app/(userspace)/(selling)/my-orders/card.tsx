@@ -18,7 +18,7 @@ export function OrderCard({ order, accept }: Props) {
 					{order.status}
 				</Badge>
 			</Group>
-			<List>
+			<List className='flex-grow'>
 				{order.content.map(({ orderId, nomenclature, count }) => (
 					<ListItem key={orderId}>
 						<Text size='sm'>

@@ -8,6 +8,7 @@ import { Credentials } from '@/logic/security/credentials'
 import { isUserError } from '@/utilities/user-error'
 import { notifications } from '@mantine/notifications'
 import { useRouter } from 'next/navigation'
+import { useCartStore } from '@/stores/cart'
 
 export function SignUpForm(props: HTMLAttributes<HTMLDivElement>) {
 	const form = useForm<Credentials>({
@@ -18,6 +19,7 @@ export function SignUpForm(props: HTMLAttributes<HTMLDivElement>) {
 	})
 
 	const router = useRouter()
+	const clearCart = useCartStore(({ clear }) => clear)
 
 	async function submitFrontend(values: Credentials) {
 		const result = await submit(values)
@@ -28,6 +30,7 @@ export function SignUpForm(props: HTMLAttributes<HTMLDivElement>) {
 			})
 			return
 		}
+		clearCart()
 		router.push('/')
 	}
 

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { GenericProduct } from './type'
-import { Grid, GridCol } from '@mantine/core'
+import { Flex, GridCol } from '@mantine/core'
 import { ProductCard } from './card'
 import { removeProduct } from '@/logic/nomenclature/remove'
 
@@ -20,12 +20,10 @@ export function ProductList(props: Props) {
 	}
 
 	return (
-		<Grid>
+		<Flex gap='sm' wrap='wrap'>
 			{products.map((product) => (
-				<GridCol key={product.id} span='auto'>
-					<ProductCard {...product} remove={remove} />
-				</GridCol>
+				<ProductCard {...product} remove={remove} />
 			))}
-		</Grid>
+		</Flex>
 	)
 }

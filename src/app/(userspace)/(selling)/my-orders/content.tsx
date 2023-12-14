@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ActionIcon, Grid, GridCol } from '@mantine/core'
+import { ActionIcon, Flex, Grid, GridCol } from '@mantine/core'
 import type { getMyOrders } from '@/logic/order/get-my'
 import { acceptOrder } from '@/logic/order/accept'
 import { ProductCard } from '@/components/product/card'
@@ -28,12 +28,10 @@ export function Content(props: Props) {
 	}
 
 	return (
-		<Grid>
+		<Flex gap='sm' wrap='wrap'>
 			{orders.map((order) => (
-				<GridCol key={order.id} span='auto'>
-					<OrderCard order={order} accept={accept} />
-				</GridCol>
+				<OrderCard order={order} accept={accept} />
 			))}
-		</Grid>
+		</Flex>
 	)
 }

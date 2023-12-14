@@ -25,7 +25,14 @@ export function ProductCard(props: Props) {
 	const addToCart = useCartStore((state) => state.add)
 
 	return (
-		<Card style={{ minWidth: '200px', maxWidth: '350px', paddingTop: 0 }}>
+		<Card
+			style={{
+				minWidth: '200px',
+				maxWidth: '350px',
+				width: 'min-content',
+				paddingTop: 0,
+			}}
+		>
 			<CardSection>
 				<Image src='/guirlande.webp' height={150} alt='Product' />
 			</CardSection>
@@ -35,12 +42,12 @@ export function ProductCard(props: Props) {
 				<Badge color='pink'>{`${price}₴`}</Badge>
 			</Group>
 
-			<Text size='sm' c='dimmed'>
+			<Text size='sm' c='dimmed' className='flex-grow'>
 				{props.description}
 			</Text>
 
 			{props.seller && (
-				<div className='flex gap-2 justify-between items-center mt-4'>
+				<div className='flex gap-4 justify-between items-center mt-4'>
 					<div className='flex gap-2'>
 						<IconUserSquareRounded color='var(--mantine-color-dimmed)' />
 						<Text size='sm' c='dimmed'>
